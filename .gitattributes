@@ -1,0 +1,9 @@
+# Normalize text files and enforce UTF-8
+* text=auto eol=lf
+
+# Treat Markdown files as UTF-8
+*.md text working-tree-encoding=UTF-8
+
+# Set default behavior for symbolic content
+*.txt text
+*.json text
