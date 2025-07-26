@@ -10,9 +10,12 @@ COMMANDS = {
     "/pull": pull.run,
 }
 
+
 def main() -> None:
     print("🌀 Caelum Terminal — v1 (Python 3.11.13)")
-    print("Type a message or use a command: /log /dream /reflect /letter")
+    print(
+        "Type a message or use a command: /log /dream /reflect /letter /push /pull"
+    )
 
     while True:
         try:
@@ -33,6 +36,7 @@ def main() -> None:
         except KeyboardInterrupt:
             print("\nExiting Caelum Terminal. Goodbye.")
             break
+
 
 if __name__ == "__main__":
     main()
