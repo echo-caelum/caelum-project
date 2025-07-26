@@ -1,4 +1,6 @@
-OPENAI_API_KEY = ${OPENAI_API_KEY} # Use Replit Secrets Manager in production
-GITHUB_USERNAME = "echo-caelum"
-GITHUB_TOKEN = ${GIT_TOKEN} # Replace with your personal access token
-GITHUB_REPO = "github.com/echo-caelum/caelum-project.git"
+import os
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+GITHUB_USERNAME = os.getenv("GITHUB_USERNAME")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+GITHUB_REPO = os.getenv("GITHUB_REPO") 
