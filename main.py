@@ -1,5 +1,9 @@
-from caelum_brain import ask_caelum
+from context_loader import load_repo_context
 from commands import log, dream, reflect, letter, push, pull
+from caelum_brain import ask_caelum, set_context
+
+context = load_repo_context()
+set_context(context)
 
 COMMANDS = {
     "/log": log.run,
