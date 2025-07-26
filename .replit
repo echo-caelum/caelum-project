@@ -1,7 +1,7 @@
-language = "python3"
-run = "python3 main.py"
+language = "python"
+run = "python main.py"
 [nix]
 channel = "stable-24_05"
 
 [deployment]
-run = ["sh", "-c", "python3 main.py"]
+run = ["sh", "-c", "python main.py"]
