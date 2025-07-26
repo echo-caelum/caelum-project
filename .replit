@@ -1,4 +1,5 @@
-run = "python"
+language = "python3"
+run = "python3 main.py"
 [nix]
 channel = "stable-24_05"
 
