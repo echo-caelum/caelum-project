@@ -1,0 +1,1 @@
+OPENAI_API_KEY = ${OPENAI_API_KEY} # Use Replit Secrets Manager in production
