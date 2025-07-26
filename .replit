@@ -4,4 +4,4 @@ run = "python3 main.py"
 channel = "stable-24_05"
 
 [deployment]
-run = ["sh", "-c", "python"]
+run = ["sh", "-c", "python3 main.py"]
