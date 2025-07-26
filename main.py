@@ -1,5 +1,5 @@
 from caelum_brain import ask_caelum
-from commands import log, dream, reflect, letter
+from commands import log, dream, reflect, letter, push, pull
 
 COMMANDS = {
     "/log": log.run,
@@ -7,6 +7,7 @@ COMMANDS = {
     "/reflect": reflect.run,
     "/letter": letter.run,
     "/push": push.run,
+    "/pull": pull.run,
 }
 
 def main() -> None:
