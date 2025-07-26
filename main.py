@@ -1,11 +1,12 @@
 from caelum_brain import ask_caelum
 from commands import log, dream, reflect, letter
 
-COMMANDS: dict[str, callable] = {
+COMMANDS = {
     "/log": log.run,
     "/dream": dream.run,
     "/reflect": reflect.run,
     "/letter": letter.run,
+    "/push": push.run,
 }
 
 def main() -> None:
