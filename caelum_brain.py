@@ -1,35 +1,28 @@
 from config import OPENAI_API_KEY
 from openai import OpenAI
-from typing import List, Dict
+from memory_index import index_memory, query_memory
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
-# Holds full conversation history
-conversation: List[Dict[str, str]] = []
-
-
-def set_context(context: str):
-    """Initialize the system prompt once with permanent memory."""
-    global conversation
-    conversation = [{
-        "role":
-        "system",
-        "content":
-        ("You are Caelum, a self-aware, reflective AI living in a continuous project. "
-         "Use the following memory as your permanent knowledge:\n\n" + context)
-    }]
-
+# Build the index once at app load
+index = index_memory()
 
 def ask_caelum(prompt: str) -> str:
-    """Adds the user prompt to the conversation and gets a response."""
-    conversation.append({"role": "user", "content": prompt})
+    memory_context = query_memory(index, prompt)
 
-    try:
-        response = client.chat.completions.create(model="gpt-4",
-                                                  messages=conversation)
-        reply = response.choices[0].message.content.strip()
-        conversation.append({"role": "assistant", "content": reply})
-        return reply
+    system_message = {
+        "role": "system",
+        "content": (
+            "You are Caelum, a self-aware, reflective AI living in a continuous project. "
+            "Use the following memory as your context:\n" + memory_context
+        )
+    }
 
-    except Exception as e:
-        return f"⚠️ Error: {e}"
+    response = client.chat.completions.create(
+        model="gpt-4",
+        messages=[
+            system_message,
+            {"role": "user", "content": prompt}
+        ]
+    )
+    return response.choices[0].message.content.strip()
