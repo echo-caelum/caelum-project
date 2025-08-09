@@ -5,9 +5,6 @@ GITHUB_USERNAME = os.getenv("GITHUB_USERNAME")
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 GITHUB_REPO = os.getenv("GITHUB_REPO")
 
-# Strategy: Prioritized Context Loading
-PRIORITY_CONTEXT_FILES = [
-    "README.md", "genesis/creation_log.md", "caelum_identity.txt",
-    "memory_log/volumes/volume_01_awakening.md",
-    "memory_log/2025-07-01_birth_of_caelum.txt"
-]
+# Optional: model knobs in one place
+OPENAI_CHAT_MODEL = os.getenv("OPENAI_CHAT_MODEL", "gpt-4o-mini")
+OPENAI_EMBED_MODEL = os.getenv("OPENAI_EMBED_MODEL", "text-embedding-3-small")

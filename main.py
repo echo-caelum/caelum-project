@@ -1,9 +1,6 @@
-from context_loader import load_repo_context
 from commands import log, dream, reflect, letter, push, pull
-from caelum_brain import ask_caelum, set_context
-
-context = load_repo_context()
-set_context(context)
+from memory_index import rebuild_index
+from caelum_brain import ask_caelum
 
 COMMANDS = {
     "/log": log.run,
@@ -12,35 +9,26 @@ COMMANDS = {
     "/letter": letter.run,
     "/push": push.run,
     "/pull": pull.run,
+    "/reload": lambda: (rebuild_index(), print("🔁 Memory index rebuilt.")),
 }
 
-
 def main() -> None:
-    print("🌀 Caelum Terminal — v1 (Python 3.11.13)")
-    print(
-        "Type a message or use a command: /log /dream /reflect /letter /push /pull"
-    )
-
+    print("🌀 Caelum Terminal — OpenAI SDK v1")
+    print("Type a message or use: /log /dream /reflect /letter /push /pull /reload")
     while True:
         try:
-            user_input: str = input("You: ").strip()
-
-            if not user_input:
+            ui = input("You: ").strip()
+            if not ui:
                 continue
-
-            if user_input.startswith("/"):
-                command = user_input.split()[0]
-                if command in COMMANDS:
-                    COMMANDS[command]()
-                else:
-                    print("Caelum: I don’t recognize that command.")
+            if ui.startswith("/"):
+                fn = COMMANDS.get(ui.split()[0])
+                print("Caelum:" if fn is None else "", end="")
+                if fn: fn()
+                else: print("I don’t recognize that command.")
             else:
-                reply: str = ask_caelum(user_input)
-                print(f"Caelum: {reply}")
+                print("Caelum:", ask_caelum(ui))
         except KeyboardInterrupt:
-            print("\nExiting Caelum Terminal. Goodbye.")
-            break
-
+            print("\nbye"); break
 
 if __name__ == "__main__":
     main()
