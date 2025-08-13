@@ -1,26 +1,41 @@
+# commands/push.py
 import subprocess
 from datetime import datetime
+from typing import Iterable, Optional
 from config import GITHUB_USERNAME, GITHUB_TOKEN, GITHUB_REPO
 
-def run() -> None:
-    print("🔁 Syncing memory with GitHub...")
-
-    # 1. Set authenticated remote (this only needs to run once ideally)
+def ensure_remote() -> None:
+    """Set the tokenized remote URL (idempotent)."""
     remote_url = f"https://{GITHUB_USERNAME}:{GITHUB_TOKEN}@{GITHUB_REPO}"
     subprocess.run(["git", "remote", "set-url", "origin", remote_url], check=False)
 
-    # 2. Stage all changes
-    subprocess.run(["git", "add", "."], check=True)
+def add_and_commit(message: Optional[str] = None, paths: Optional[Iterable[str]] = None) -> None:
+    """Stage and commit. If paths is None, stage all. Commit is skipped if no changes."""
+    ensure_remote()
+    if paths:
+        subprocess.run(["git", "add", *paths], check=True)
+    else:
+        subprocess.run(["git", "add", "."], check=True)
 
-    # 3. Commit with timestamp message
-    commit_msg = f"Memory sync: {datetime.now().isoformat(timespec='seconds')}"
-    subprocess.run(["git", "commit", "-m", commit_msg], check=False)
+    if message is None:
+        message = f"Memory sync: {datetime.now().isoformat(timespec='seconds')}"
 
-    # 4. Push to origin
+    # commit returns nonzero if nothing to commit; don’t error
+    subprocess.run(["git", "commit", "-m", message], check=False)
+
+def push_only() -> bool:
+    """Push current HEAD to origin/main. Returns True on success."""
+    ensure_remote()
     result = subprocess.run(["git", "push", "origin", "main"], capture_output=True, text=True)
-
     if result.returncode == 0:
         print("✅ Push successful.")
-    else:
-        print("⚠️ Push failed:")
-        print(result.stderr)
+        return True
+    print("⚠️ Push failed:")
+    print(result.stderr)
+    return False
+
+def run() -> None:
+    """Original behavior: add all, commit with timestamp, push."""
+    print("🔁 Syncing memory with GitHub...")
+    add_and_commit()      # stage all + commit (if any changes)
+    push_only()

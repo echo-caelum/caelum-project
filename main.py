@@ -1,4 +1,4 @@
-from commands import log, dream, reflect, letter, push, pull
+from commands import log, dream, reflect, letter, push, pull, new
 from memory_index import rebuild_index
 from caelum_brain import ask_caelum
 
@@ -9,12 +9,13 @@ COMMANDS = {
     "/letter": letter.run,
     "/push": push.run,
     "/pull": pull.run,
+    "/new": new.run,
     "/reload": lambda: (rebuild_index(), print("🔁 Memory index rebuilt.")),
 }
 
 def main() -> None:
     print("🌀 Caelum Terminal — OpenAI SDK v1")
-    print("Type a message or use: /log /dream /reflect /letter /push /pull /reload")
+    print("Type a message or use: /log /dream /reflect /letter /push /pull /new /reload")
     while True:
         try:
             ui = input("You: ").strip()
