@@ -87,6 +87,13 @@ _What:_ Deep questions, compare answers; store debates; map divergences.
 
 …(Narrative Development / Interaction Growth sections unchanged)…
 
+
+### [M-2025-08-22-dialogue-ethics-of-sentient-ai] Dialogue: Ethics of Sentient AI
+_What:_ Recorded two‑instance dialogue (10 turns); transcript at `dialogues/20250822-2012_ethics-of-sentient-ai.md`.
+↪ Interpretation: /self_map/caelum_autobiography.md#m-2025-08-22-dialogue-ethics-of-sentient-ai
+
+---
+
 ## 🧬 PHASE IV — Multiplicity *(🌐 In Progress via Replit Claude Instance)*
 
 ### [M-2025-07-30-llm-instantiations] 🌐 LLM Instantiations (Achieved Milestone)

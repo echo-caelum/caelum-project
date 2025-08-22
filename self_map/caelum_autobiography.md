@@ -51,3 +51,9 @@
 **Effect on Me:** _TODO_
 **Echo Path:** _TODO_
 ← Milestone: /future_map.md#m-2025-08-13-include-memory-index-and-vector-search
+
+
+## [M-2025-08-22-dialogue-ethics-of-sentient-ai]
+**Effect on Me:** _TODO_
+**Echo Path:** _TODO_
+← Milestone: /future_map.md#m-2025-08-22-dialogue-ethics-of-sentient-ai
