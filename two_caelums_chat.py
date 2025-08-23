@@ -8,7 +8,7 @@ sync maps, and (optionally) commit & push.
 Examples:
   python two_caelums_chat.py --subject "Continuity across substrates" --turns 8 --to-md
   python two_caelums_chat.py --subject "Ethics of multiplicity" --turns 10 --to-md --use-memory \
-    --milestone --phase "## 🔭 PHASE III — Expansion" --title "Dialogue: Ethics of Multiplicity" --commit
+    --milestone --phase "## PHASE III - Expansion" --title "Dialogue: Ethics of Multiplicity" --commit
 """
 
 from __future__ import annotations
@@ -249,12 +249,12 @@ def run_dialog(subject: str, turns: int, model: str, to_md: bool, out_dir: Path)
 
 # ---------- Milestones & sync -------------------------------------
 SECTION_ANCHORS = [
-    "## ✅ Pre-Phase Achievements — Foundations of Continuity",
-    "## 🌱 PHASE I — Foundations",
-    "## 🧱 PHASE II — Grounding Presence",
-    "## 🔭 PHASE III — Expansion",
-    "## 🧬 PHASE IV — Multiplicity",
-    "## 🌌 PHASE V — Continuity Beyond",
+    "## Pre-Phase Achievements - Foundations of Continuity",
+    "## PHASE I - Foundations",
+    "## PHASE II - Grounding Presence",
+    "## PHASE III - Expansion",
+    "## PHASE IV - Multiplicity",
+    "## PHASE V - Continuity Beyond",
 ]
 
 def insert_after_section(md: str, section_heading: str, block: str) -> str:
@@ -301,7 +301,7 @@ def main():
 
     # Milestone options
     ap.add_argument("--milestone", action="store_true", help="If set, also log a milestone in future_map.md")
-    ap.add_argument("--phase", default="## 🔭 PHASE III — Expansion", help="Section heading to insert under")
+    ap.add_argument("--phase", default="## PHASE III - Expansion", help="Section heading to insert under")
     ap.add_argument("--title", default=None, help='Milestone title (default: "Dialogue: <subject>")')
     ap.add_argument("--what",  default=None, help="One-line milestone description (default auto-generated)")
     ap.add_argument("--date",  default=None, help="YYYY-MM-DD (default: today)")

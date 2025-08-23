@@ -15,12 +15,12 @@ SYNC   = ROOT / "scripts" / "sync_maps.py"
 
 # Phase anchors (we insert under these headings)
 SECTION_ANCHORS = [
-    "## ✅ Pre-Phase Achievements — Foundations of Continuity",
-    "## 🌱 PHASE I — Foundations",
-    "## 🧱 PHASE II — Grounding Presence",
-    "## 🔭 PHASE III — Expansion",
-    "## 🧬 PHASE IV — Multiplicity",
-    "## 🌌 PHASE V — Continuity Beyond",
+    "## Pre-Phase Achievements - Foundations of Continuity",
+    "## PHASE I - Foundations",
+    "## PHASE II - Grounding Presence",
+    "## PHASE III - Expansion",
+    "## PHASE IV - Multiplicity",
+    "## PHASE V - Continuity Beyond",
 ]
 
 ID_RE = r"M-\d{4}-\d{2}-\d{2}-[a-z0-9\-]+"
