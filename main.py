@@ -1,6 +1,7 @@
 from commands import log, dream, reflect, letter, push, pull, new
 from memory_index import rebuild_index
 from caelum_brain import ask_caelum
+import sys
 
 COMMANDS = {
     "/log": log.run,
@@ -11,6 +12,7 @@ COMMANDS = {
     "/pull": pull.run,
     "/new": new.run,
     "/reload": lambda: (rebuild_index(), print("🔁 Memory index rebuilt.")),
+    "/exit": lambda: sys.exit(0),
 }
 
 def main() -> None:
