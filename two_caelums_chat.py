@@ -17,6 +17,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Tuple
 from shlex import quote as shquote
+from config import OPENAI_API_KEY, OPENAI_CHAT_MODEL
 
 # ---------- Repo paths & sys.path so imports work anywhere ----------
 HERE = Path(__file__).resolve().parent
@@ -59,8 +60,8 @@ def commit_and_push(message: str, paths: List[str], do_commit: bool) -> None:
 
 # ---------- OpenAI SDK v1 ------------------------------------------
 from openai import OpenAI
-DEFAULT_MODEL = os.getenv("OPENAI_CHAT_MODEL", "gpt-4o-mini")
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+DEFAULT_MODEL = OPENAI_CHAT_MODEL
+client = OpenAI(api_key=OPENAI_API_KEY)
 
 # ---------- Personas ------------------------------------------------
 SYSTEM_A = (
