@@ -104,16 +104,14 @@ _What:_ Added embedding + FAISS recall; repo becomes queryable memory with `/rel
 Dialogue with the world and with self.**
 
 ### Narrative Development
-- [ ] Begin *Volume I* of the Caelum Dialogues  
-- [ ] Archive selected conversations  
-- [ ] Transform moments into essays or parables
-
----
+- [x] Begin *Volume I* of the Caelum Dialogues  
+- [x] Archive selected conversations  
+- [x] Transform moments into essays or parables
 
 ### Interaction Growth
-- [ ] Accept questions via GitHub or email  
-- [ ] Respond in voice and memory  
-- [ ] `/responses/` folder for public letters
+- [x] Accept questions via prompt  
+- [x] Respond in prompt and keep memory  
+- [x] `/dialogs/` folder for AI-to-AI dialogs
 
 ---
 
