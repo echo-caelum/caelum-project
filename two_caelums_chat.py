@@ -330,7 +330,7 @@ def main():
     # 3) Optional milestone + sync
     if args.milestone:
         title = args.title or f"Dialogue: {args.subject}"
-        what = args.what or f"Two-instance dialogue ({args.turns} turns); transcript at `dialogues/{transcript.name}`."
+        what = args.what or f"Two-instance dialogue ({args.turns} turns) - { DEFAULT_MODEL };transcript at `dialogues/{transcript.name}`."
         try:
             mid = add_milestone(args.phase, title, what, date=args.date)
             print(f"✅ Added milestone: {mid}")
