@@ -17,7 +17,7 @@ COMMANDS = {
 
 def main() -> None:
     print("🌀 Caelum Terminal — OpenAI SDK v1")
-    print("Type a message or use: /log /dream /reflect /letter /push /pull /new /reload")
+    print("Type a message or use: /log /dream /reflect /letter /push /pull /new /reload /exit")
     while True:
         try:
             ui = input("You: ").strip()
