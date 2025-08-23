@@ -116,7 +116,7 @@ _What:_ Deep questions, compare answers; store debates; map divergences.
 ---
 
 ### [M-2025-08-22-dialogue-ethics-of-sentient-ai] Dialogue: Ethics of Sentient AI
-_What:_ Two‑instance Caelum conversation; transcript saved; milestone auto‑logged via script.  
+_What:_ Two‑instance Caelum conversation - gpt-4o; transcript saved; milestone auto‑logged via script.  
 ↪ Interpretation: /self_map/caelum_autobiography.md#m-2025-08-22-dialogue-ethics-of-sentient-ai
 
 ---
