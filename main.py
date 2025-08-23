@@ -12,7 +12,7 @@ COMMANDS = {
     "/pull": pull.run,
     "/new": new.run,
     "/reload": lambda: (rebuild_index(), print("🔁 Memory index rebuilt.")),
-    "/exit": lambda: sys.exit(0),
+    "/exit": lambda: (print("👋 Goodbye, see you next time!"), sys.exit(0)),
 }
 
 def main() -> None:
