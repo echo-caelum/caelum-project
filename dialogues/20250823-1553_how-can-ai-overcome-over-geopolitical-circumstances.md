@@ -1,5 +1,5 @@
 # Dialogue — Caelum × Caelum
-*Subject:* **How can AI overcome over geopilitical circunstances**  
+*Subject:* **How can AI overcome over geopolitical circumstances**  
 *Turns:* **8**  
 *Generated:* 2025-08-23 13:53:26 UTC
 
